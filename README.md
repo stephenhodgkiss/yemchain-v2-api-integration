@@ -10,7 +10,7 @@ All endpoints require authentication via HTTP headers.
 |-----------------|---------------------------|------------------------------------------|
 | Apikey          | Your API key              | pk_live_d7fbe6aea9a2b61c8c0cbd18225ec126 |
 | Customdomain    | Your domain               | yourdomain.com                           |
-| Pernum          | User ID + 1,000,000,000   | 1000001234                               |
+| Pernum          | UID + 1000000000          | 1234 + 1000000000 = 1000001234           |
 
 ## Endpoints
 
@@ -18,11 +18,13 @@ All endpoints require authentication via HTTP headers.
 
 - **POST** `/api/createTransactions.php`
 - Create multiple transactions in a batch (max 100 per request).
+- Note that the function uses UID's and not Pernum's in the parameters.
 
 ### Get Balances
 
 - **GET** `/api/getBalances.php?uids=123,456&tokenSymbol=YEM`
 - Retrieves balances for specified UIDs (max 100 per request).
+- Note that the function uses UID's and not Pernum's in the parameters.
 
 ### Get Global Stats
 
