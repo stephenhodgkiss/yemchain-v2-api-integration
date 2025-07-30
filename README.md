@@ -1,2 +1,41 @@
-# yemchain-v2-api-integration
+# YEM Blockchain API Integration
+
 This repository provides documentation and example code for integrating with the YEM blockchain API. The API supports balance queries, batched transaction creation, global stats, and volume statistics.
+
+## Authentication
+
+All endpoints require authentication via HTTP headers.
+
+| Header          | Description                | Example                         |
+|-----------------|---------------------------|---------------------------------|
+| Apikey          | Your API key              | H1716bda2k83Js08153MRSd3accG843 |
+| Customdomain    | Your domain               | yourdomain.com                  |
+| Pernum          | User ID + 1,000,000,000   | 1000001234                      |
+
+## Endpoints
+
+### Create Transactions
+
+- **POST** `/api/createTransactions.php`
+- Create multiple transactions in a batch (max 100 per request).
+
+### Get Balances
+
+- **GET** `/api/getBalances.php?uids=123,456&tokenSymbol=YEM`
+- Retrieves balances for specified UIDs (max 100 per request).
+
+### Get Global Stats
+
+- **GET** `/api/getGlobals.php`
+- Retrieves global blockchain statistics.
+
+### Get Transaction Volume
+
+- **GET** `/api/getTxnVolume.php?tokenSymbol=YEM`
+- Retrieves transaction volume statistics for a token.
+
+## Rate Limits
+
+- The API has a rate limit of 10 requests per minute per API key. If you need a higher rate limit, please contact us.
+
+---
