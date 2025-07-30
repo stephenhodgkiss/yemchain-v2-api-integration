@@ -6,11 +6,11 @@ This repository provides documentation and example code for integrating with the
 
 All endpoints require authentication via HTTP headers.
 
-| Header          | Description                | Example                         |
-|-----------------|---------------------------|---------------------------------|
-| Apikey          | Your API key              | H1716bda2k83Js08153MRSd3accG843 |
-| Customdomain    | Your domain               | yourdomain.com                  |
-| Pernum          | User ID + 1,000,000,000   | 1000001234                      |
+| Header          | Description                | Example                                 |
+|-----------------|---------------------------|------------------------------------------|
+| Apikey          | Your API key              | pk_live_d7fbe6aea9a2b61c8c0cbd18225ec126 |
+| Customdomain    | Your domain               | yourdomain.com                           |
+| Pernum          | User ID + 1,000,000,000   | 1000001234                               |
 
 ## Endpoints
 
