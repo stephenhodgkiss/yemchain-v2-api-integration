@@ -19,6 +19,7 @@ All endpoints require authentication via HTTP headers.
 - **POST** `/api/createTransactions.php`
 - Create multiple transactions in a batch (max 100 per request).
 - Note that the function uses UID's and not Pernum's in the parameters.
+- The `value` is the amount of the ASSET including decimals and always expressed as an integer. Example for asset YEM: 1234 is actually 12.34 YEM
 
 ### Get Balances
 

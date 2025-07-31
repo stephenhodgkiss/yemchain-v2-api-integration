@@ -12,7 +12,7 @@ const createTransactions = async () => {
             {
                 from_uid: 123,
                 to_uid: 456,
-                value: 1000,
+                value: 1234,
                 reason: "Payment for order #12345",
                 asset: "YEM",
                 from_curr: "EUR",

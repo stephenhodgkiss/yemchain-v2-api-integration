@@ -1,6 +1,6 @@
 <?php // Example: Create Transactions 
 
-$data = json_encode([['from_uid' => 123, 'to_uid' => 456, 'value' => 1000, 'reason' => 'Payment for order #12345', 'asset' => 'YEM', 'from_curr' => 'EUR', 'to_curr' => 'USD']]);
+$data = json_encode([['from_uid' => 123, 'to_uid' => 456, 'value' => 1234, 'reason' => 'Payment for order #12345', 'asset' => 'YEM', 'from_curr' => 'EUR', 'to_curr' => 'USD']]);
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://yemscan.com/api/createTransactions.php');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
