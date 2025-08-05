@@ -2,6 +2,8 @@
 
 This repository provides documentation and example code for integrating with the YEM blockchain API. The API supports balance queries, batched transaction creation, global stats, and volume statistics.
 
+If you need access or to request a higher rate limit, please contact us at [YEM Foundation Support](https://yem-foundation.org) by submitting a ticket.
+
 ## Authentication
 
 All endpoints require authentication via HTTP headers.
@@ -37,8 +39,14 @@ All endpoints require authentication via HTTP headers.
 - **GET** `/api/getTxnVolume.php?tokenSymbol=YEM`
 - Retrieves transaction volume statistics for a token.
 
+### Get Transaction Hash Statuses
+
+- **GET** `/api/getTxnHashes.php?hashes=0xa1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678,0xb2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890,0x243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85`
+- Retrieves statuses for multiple transaction hashes (max 100 per request).
+- Especially useful after using the createTransactions function to ensure they have been processed from the [Mempool](https://yemscan.com/mempool/1/).
+
 ## Rate Limits
 
-- The API has a rate limit of 10 requests per minute per API key. If you need a higher rate limit, please contact us.
+- The API has a rate limit of 10 requests per minute per API key.
 
 ---

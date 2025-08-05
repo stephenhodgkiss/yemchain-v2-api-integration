@@ -96,3 +96,25 @@ const getTxnVolumeResponse = {
     "volume_7d": 105000.75,
     "message": "Transaction volume retrieved successfully in 2ms"
 }
+
+// Example: Get Transaction Hash Statuses 
+const getTxnHashes = async () => {
+    fetch('https://yemscan.com/api/getTxnHashes.php?hashes=0xa1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678,0xb2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890,0x243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85', {
+        headers: {
+            'Apikey': 'YOUR_API_KEY',
+            'Customdomain': 'yourdomain.com',
+            'Pernum': '1000001234'
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data));
+}
+
+// Example response
+const getTxnHashesResponse = {
+    "statuses": {
+        "0xa1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678": "1",
+        "0xb2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890": "2",
+        "0x243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85": "0"
+    }
+}

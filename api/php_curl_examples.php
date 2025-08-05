@@ -78,3 +78,23 @@ $response = '
   "message": "Transaction volume retrieved successfully in 2ms"
 }
 ';
+
+
+// Example: Get Transaction Hash Statuses 
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://yemscan.com/api/getTxnHashes.php?hashes=0xa1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678,0xb2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890,0x243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Apikey: YOUR_API_KEY', 'Customdomain: yourdomain.com', 'Pernum: 1000001234']);
+$response = curl_exec($ch);
+curl_close($ch);
+
+// Example response
+$response = '
+{
+  "statuses": {
+    "0xa1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678": "1",
+    "0xb2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890": "2",
+    "0xc3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890ab": "0"
+  }
+}
+';
