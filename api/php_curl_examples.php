@@ -98,3 +98,20 @@ $response = '
   }
 }
 ';
+
+
+// Example: Get Asset Stats
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://yemscan.com/api/getAssetStats.php?tokenSymbol=YEM');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Apikey: YOUR_API_KEY', 'Customdomain: yourdomain.com', 'Pernum: 1000001234']);
+$response = curl_exec($ch);
+curl_close($ch);
+
+// Example response
+$response = '
+{
+    "price": "1.00",
+    "wallets": 1257632
+}
+';

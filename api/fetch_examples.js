@@ -118,3 +118,22 @@ const getTxnHashesResponse = {
         "0x243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85": "0"
     }
 }
+
+// Example: Get Asset Stats 
+const getAssetStats = async () => {
+    fetch('https://yemscan.com/api/getAssetStats?tokenSymbol=YEM', {
+        headers: {
+            'Apikey': 'YOUR_API_KEY',
+            'Customdomain': 'yourdomain.com',
+            'Pernum': '1000001234'
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data));
+}
+
+// Example response
+const getAssetStatsResponse = {
+    "price": "1.00",
+    "wallets": 1257632
+}

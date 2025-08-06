@@ -45,6 +45,10 @@ All endpoints require authentication via HTTP headers.
 - Retrieves statuses for multiple transaction hashes (max 100 per request).
 - Especially useful after using the createTransactions function to ensure they have been processed from the [Mempool](https://yemscan.com/mempool/1/).
 
+### Get Asset Stats
+- **GET** `/api/getAssetStats?tokenSymbol=YEM
+- Retrieves price and number of wallets holding a balance of that asset
+
 ## Rate Limits
 
 - The API has a rate limit of 10 requests per minute per API key.
