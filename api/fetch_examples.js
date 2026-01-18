@@ -119,9 +119,9 @@ const getTxnHashesResponse = {
     }
 }
 
-// Example: Get Asset Stats 
+// Example: Get Asset Stats
 const getAssetStats = async () => {
-    fetch('https://yemscan.com/api/getAssetStats?tokenSymbol=YEM', {
+    fetch('https://yemscan.com/api/getAssetStats.php?tokenSymbol=YEM', {
         headers: {
             'Apikey': 'YOUR_API_KEY',
             'Customdomain': 'yourdomain.com',
@@ -136,4 +136,58 @@ const getAssetStats = async () => {
 const getAssetStatsResponse = {
     "price": "1.00",
     "wallets": 1257632
+}
+
+// Example: Get Public Key
+const getPublicKey = async () => {
+    fetch('https://yemscan.com/api/getPublicKey.php?uid=12345', {
+        headers: {
+            'Apikey': 'YOUR_API_KEY',
+            'Customdomain': 'yourdomain.com',
+            'Pernum': '1000001234'
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data));
+}
+
+// Example response
+const getPublicKeyResponse = {
+    "success": true,
+    "public_key": "0x742d35cc6634c0532925a3b844b91678f8c8f3a0"
+}
+
+// Example: Get Transaction Hash
+const getTransactionHash = async () => {
+    fetch('https://yemscan.com/api/getTransactionHash.php?hash=0x278d9e202a17d833f05f744758c5eb423411529e90cc0e5f04aa6825c30aab6e', {
+        headers: {
+            'Apikey': 'YOUR_API_KEY',
+            'Customdomain': 'yourdomain.com',
+            'Pernum': '1000001234'
+        }
+    })
+        .then(response => response.json())
+        .then(data => console.log(data));
+}
+
+// Example response
+const getTransactionHashResponse = {
+    "hash": "0x278d9e202a17d833f05f744758c5eb423411529e90cc0e5f04aa6825c30aab6e",
+    "blockNumber": 476232,
+    "gas": 29437,
+    "gasPrice": 0,
+    "gasLimit": 29437,
+    "burntFees": 0,
+    "from": "0xfa592403b9c52b6f61f7e2334b5c7c4feb847ded",
+    "to": "0xcc60ede09aa012d7595e871b0c19d6bdd48ebbc9",
+    "from_uid": 999999,
+    "to_uid": 789,
+    "reason": "",
+    "reasonCode": 18,
+    "value": 73,
+    "onchaindata": "|0.73|CHF|0.91|USD",
+    "asset": "YEM",
+    "timestamp": 1765650241,
+    "status": true,
+    "failedText": ""
 }
