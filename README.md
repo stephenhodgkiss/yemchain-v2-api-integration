@@ -49,7 +49,7 @@ All endpoints require authentication via HTTP headers.
 ### Get Transaction Volume
 
 - **GET** `/api/getTxnVolume.php?tokenSymbol=YEM`
-- Retrieves transaction volume statistics for a token.
+- Retrieves transaction volume statistics including 1d/7d volumes, number of addresses, balances, transaction count, and cache status.
 - Uses dual-cache (APCu + Redis) with 300s TTL.
 
 **Response Fields:**
@@ -97,7 +97,8 @@ Note: Response keys are lowercase hashes without the 0x prefix.
 ### Get Public Key
 
 - **GET** `/api/getPublicKey.php?uid=12345`
-- Retrieves the Ethereum public key for a specific UID.
+- Retrieves the Ethereum address for a specific UID.
+- Note: Requires API level 3 access.
 - **Requires API level 3 or higher.**
 
 **Parameters:**
