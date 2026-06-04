@@ -71,9 +71,9 @@ const getGlobals = async () => {
 // Example response
 const getGlobalsResponse = {
     "success": true,
-    "message": "Global stats retrieved successfully in 5ms",
     "total_accs": 15000,
-    "total_txns": 50000
+    "total_txns": 50000,
+    "price": "1.00"
 }
 
 // Example: Get Transaction Volume
@@ -94,10 +94,13 @@ const getTxnVolumeResponse = {
     "success": true,
     "volume_1d": 15000.25,
     "volume_7d": 105000.75,
-    "message": "Transaction volume retrieved successfully in 2ms"
+    "num_addresses": 1234,
+    "balances": {},
+    "transaction_count": 50000,
+    "cacheHit": false
 }
 
-// Example: Get Transaction Hash Statuses 
+// Example: Get Transaction Hash Statuses
 const getTxnHashes = async () => {
     fetch('https://yemscan.com/api/getTxnHashes.php?hashes=0xa1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678,0xb2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890,0x243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85', {
         headers: {
@@ -110,12 +113,12 @@ const getTxnHashes = async () => {
         .then(data => console.log(data));
 }
 
-// Example response
+// Example response (note: keys are lowercase without 0x prefix)
 const getTxnHashesResponse = {
     "statuses": {
-        "0xa1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678": "1",
-        "0xb2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890": "2",
-        "0x243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85": "0"
+        "a1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef12345678": "1",
+        "b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890": "2",
+        "243347373ddb571b4794580fbd852622b2d5ac6a7c567683f5a6614fabe04a85": "0"
     }
 }
 
@@ -138,7 +141,7 @@ const getAssetStatsResponse = {
     "wallets": 1257632
 }
 
-// Example: Get Public Key
+// Example: Get Public Key (requires API level 3+)
 const getPublicKey = async () => {
     fetch('https://yemscan.com/api/getPublicKey.php?uid=12345', {
         headers: {
@@ -154,7 +157,13 @@ const getPublicKey = async () => {
 // Example response
 const getPublicKeyResponse = {
     "success": true,
-    "public_key": "0x742d35cc6634c0532925a3b844b91678f8c8f3a0"
+    "address": "0x742d35cc6634c0532925a3b844b91678f8c8f3a0"
+}
+
+// Example error response
+const getPublicKeyErrorResponse = {
+    "success": false,
+    "message": "Invalid uid parameter"
 }
 
 // Example: Get Transaction Hash
@@ -179,7 +188,7 @@ const getTransactionHashResponse = {
     "gasLimit": 29437,
     "burntFees": 0,
     "from": "0xfa592403b9c52b6f61f7e2334b5c7c4feb847ded",
-    "to": "0xcc60ede09aa012d7595e871b0c19d6bdd48ebbc9",
+    "to": "0xcc60ede05e871b0c19d6bdd9aa012d75948ebbc9",
     "from_uid": 999999,
     "to_uid": 789,
     "reason": "",
@@ -189,5 +198,6 @@ const getTransactionHashResponse = {
     "asset": "YEM",
     "timestamp": 1765650241,
     "status": true,
-    "failedText": ""
+    "failedText": "",
+    "cacheHit": false
 }
