@@ -156,6 +156,41 @@ Note: Response keys are lowercase hashes without the 0x prefix.
 null
 ```
 
+### Get Transactions
+
+- **GET** `/api/getUserTransactionsExternal.php?uid=12345&limit=10&offset=0`
+- Retrieves transactions for a specific UID with pagination support.
+- Uses dual-cache (APCu + Redis) with 3600s TTL for individual transactions.
+- Returns transactions where the UID is either the sender or receiver.
+
+**Parameters:**
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| uid       | Yes      | The user ID to retrieve transactions for |
+| limit     | No       | Number of transactions to return (default: 20) |
+| offset    | No       | Pagination offset (default: 0) |
+
+**Response Fields:**
+- `hash`: Transaction hash
+- `blockNumber`: Block number
+- `gas`: Gas used
+- `gasPrice`: Gas price
+- `gasLimit`: Gas limit
+- `burntFees`: Burnt fees
+- `from_uid`: Sender UID
+- `to_uid`: Recipient UID
+- `reason`: Transaction reason text
+- `reasonCode`: Reason code
+- `value`: Transaction value (integer with asset decimals)
+- `asset`: Asset symbol
+- `timestamp`: Unix timestamp
+- `status`: Transaction status (true/false)
+- `failedText`: Failure text if failed
+
+**Notes:**
+- The response excludes the `from`, `to`, and `onchaindata` fields from each transaction
+- Transactions are ordered by ID in descending order (newest first)
+
 ## Rate Limits
 
 - The API has a rate limit of 10 requests per minute per API key.
