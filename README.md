@@ -2,9 +2,13 @@
 
 This repository provides documentation and example code for integrating with the YEM blockchain API. The API supports balance queries, batched transaction creation, global stats, volume statistics, asset statistics, public key retrieval, and transaction details.
 
-See the GITHUB REPOSITORY at YEM Blockchain API Integration for more information.
+The full, always-current API documentation is published at [yemscan.com/api/](https://yemscan.com/api/).
 
-If you need access or to request a higher rate limit, please contact us at [YEM Foundation Support](https://yem-foundation.org) by submitting a ticket. Make sure you specify that you want it for the YEMChain V2.0.
+Use of the API requires an authorization issued by [Cedar Forge Consulting LLC](https://cedarforgeconsulting.com/). Pricing effective **November 1, 2026** applies to all authorizations (new and renewing): **$1,800 per month**, or a **12-month prepaid lump sum of $16,800** — the equivalent of $1,400 per month. See [API Authorization Pricing](https://yemscan.com/api-pricing/) for details and to request access or a higher rate limit. Make sure you specify that you want it for the YEMChain V2.0.
+
+## Base URL
+
+All endpoints are served from `https://yemscan.com` (e.g. `https://yemscan.com/api/getBalances.php`).
 
 ## Authentication
 
@@ -194,6 +198,7 @@ null
 ## Rate Limits
 
 - The API has a rate limit of 10 requests per minute per API key.
+- A higher rate limit may be agreed as part of your authorization — see [API Authorization Pricing](https://yemscan.com/api-pricing/).
 
 ## Error Responses
 

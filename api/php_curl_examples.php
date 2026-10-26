@@ -178,3 +178,32 @@ $getTransactionHashResponse = '
     "cacheHit": false
 }
 ';
+
+// Example: Get Transactions
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://yemscan.com/api/getUserTransactionsExternal.php?uid=12345&limit=10&offset=0');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Apikey: YOUR_API_KEY', 'Customdomain: yourdomain.com', 'Pernum: 1000001234']);
+$response = curl_exec($ch);
+curl_close($ch);
+
+// Example response
+$getTransactionsResponse = '[
+    {
+        "hash": "0x278d9e202a17d833f05f7447585eb423411529e90cc0e5f04aa6825c30aab6e",
+        "blockNumber": 476232,
+        "gas": 29437,
+        "gasPrice": 0,
+        "gasLimit": 29437,
+        "burntFees": 0,
+        "from_uid": 999999,
+        "to_uid": 789,
+        "reason": "",
+        "reasonCode": 18,
+        "value": 1000,
+        "asset": "YEM",
+        "timestamp": 1765650241,
+        "status": true,
+        "failedText": ""
+    }
+]';

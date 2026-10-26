@@ -201,3 +201,14 @@ const getTransactionHashResponse = {
     "failedText": "",
     "cacheHit": false
 }
+
+// Example: Get Transactions
+fetch('https://yemscan.com/api/getUserTransactionsExternal.php?uid=12345&limit=10&offset=0', {
+    headers: {
+        'Apikey': 'YOUR_API_KEY',
+        'Customdomain': 'yourdomain.com',
+        'Pernum': '1000001234'
+    }
+})
+.then(response => response.json())
+.then(data => console.log(data));
