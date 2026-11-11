@@ -1,1 +1,6 @@
 *.txt
+
+# env / secrets (fleet audit 2026-11-11)
+.env
+.env.*
+!.env.example
